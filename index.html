@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mantenimiento Mecánico y de Soldadura Avilés</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* CONFIGURACIÓN DE COLORES CORPORATIVOS */
+        :root {
+            --azul-corporativo: #1b4b73;  /* Azul marino principal */
+            --gris-industrial: #2b3a4a;   /* Gris oscuro de contraste */
+            --fondo-tarjetas: #eef2f5;    /* Gris muy claro de fondo */
+            --oscuro-profundo: #111111;   /* Fondo negro del área de contacto */
+            --texto-suave: #555555;
+            --blanco: #ffffff;
+            --azul-brillante: #3b82f6;   /* Detalles de iluminación */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--blanco);
+            color: #333;
+        }
+
+        /* 1. BARRA DE NAVEGACIÓN */
+        header {
+            background: var(--blanco);
+            padding: 10px 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            width: 100%;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;  
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 120px; 
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 45px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+        }
+
+        .nav-links li a:hover {
+            color: var(--azul-corporativo);
+        }
+
+        /* 2. HERO SECTION */
+        .hero {
+            height: 75vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), 
+                        url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1.2rem;
+            letter-spacing: 1px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #dddddd;
+        }
+
+        .btn-main {
+            display: inline-block;   
+            padding: 14px 35px;     
+            background: var(--azul-corporativo);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 30px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn-main:hover {
+            background: #123452;
+            transform: translateY(-2px);
+        }
+
+        /* SECCIONES CONTENEDORAS */
+        .container {
+            padding: 80px 8%;    
+        }
+
+        .section-bg {
+            background-color: #f8fafc;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;  
+            font-size: 2.2rem;  
+            color: var(--azul-corporativo);
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 4px;
+            background: var(--azul-corporativo);
+            margin: 12px auto 0 auto;
+        }
+
+        /* 3. SECCIÓN SOBRE NOSOTROS */
+        .nosotros-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .card-nosotros {
+            background: var(--blanco);
+            padding: 40px 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        .card-nosotros i {
+            font-size: 3rem;   
+            color: var(--azul-corporativo);
+            margin-bottom: 20px;   
+        }
+
+        .card-nosotros h3 {
+            font-size: 1.5rem;
+            color: var(--azul-corporativo);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .card-nosotros p {
+            color: var(--texto-suave);
+            line-height: 1.6;
+        }
+
+        /* 4. SECCIÓN NUESTROS SERVICIOS (5 TARJETAS) */
+        .grid-services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+        }
+
+        .tarjeta-diseno-exacto {
+            background: var(--blanco);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s;
+        }
+
+        .tarjeta-diseno-exacto:hover {
+            transform: translateY(-5px);
+        }
+
+        .img-container-exacto {
+            width: 100%;
+            height: 180px;
+            position: relative;
+            background-color: #cbd5e1;
+        }
+
+        .img-container-exacto img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .icono-flotante-exacto {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            background: var(--gris-industrial);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blanco);
+            font-size: 1.2rem;
+            border: 3px solid var(--blanco);
+            z-index: 2;
+        }
+
+        .info-container-exacto {
+            padding: 35px 20px 25px 20px;
+            background: var(--azul-corporativo); 
+            color: var(--blanco);
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .info-container-exacto h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+            padding-bottom: 8px;
+        }
+
+        .info-container-exacto ul {
+            list-style: none;
+            text-align: left;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .info-container-exacto ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 18px;
+        }
+
+        .info-container-exacto ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #93c5fd;
+        }
+
+        /* 5. SECCIÓN ALTA CAPACIDAD (CON IMAGEN DE FONDO) */
+        .renta-alta-capacidad {
+            background: #ffffff;
+            padding: 90px 5% 45px 5%; /* Ajustado padding inferior para unirse mejor visualmente con montajes */
+        }
+
+        .split-renta-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: var(--blanco);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.07);
+            border: 1px solid #e2e8f0;
+        }
+
+        .renta-left-image-bg {
+            background: linear-gradient(rgba(27, 75, 115, 0.4), rgba(17, 17, 17, 0.7)), 
+                        url('edited-imge.jpg'); /* Usa tu archivo edited-image.png */
+            background-size: cover;
+            background-position: center;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: var(--blanco);
+            min-height: 450px;
+        }
+
+        .renta-left-image-bg h2 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            line-height: 1.1;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .renta-left-image-bg p.sub-titulo-amarillo {
+            color: #facc15; 
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        .renta-right-info-pane {
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: #f8fafc;
+        }
+
+        .renta-right-info-pane h3 {
+            font-size: 2rem;
+            color: var(--azul-corporativo);
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .renta-right-info-pane .categoria-tag {
+            color: var(--azul-brillante);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+        }
+
+        .features-editorial {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .feature-item-row h5 {
+            font-size: 1.05rem;
+            color: #1e293b;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .feature-item-row p {
+            font-size: 0.95rem;
+            color: #404A4C;
+            line-height: 1.5;
+        }
+
+        .btn-renta-editorial {
+            align-self: flex-start;
+            padding: 15px 40px;
+            background: var(--azul-corporativo);
+            color: var(--blanco);
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            border-radius: 6px;
+            transition: background 0.3s;
+            box-shadow: 0 4px 12px rgba(27, 75, 115, 0.2);
+        }
+
+        .btn-renta-editorial:hover {
+            background: #123452;
+        }
+
+        /* ESTILOS EXCLUSIVOS PARA LA NUEVA SECCIÓN 6: MONTAJES */
+        .seccion-montajes {
+            background: #ffffff;
+            padding: 45px 5% 90px 5%;
+        }
+
+        .renta-left-image-montajes {
+            background: linear-gradient(rgba(27, 75, 115, 0.5), rgba(17, 17, 17, 0.75)), 
+                        url('edited-image.png'); /* Ruta de tu imagen para montajes */
+            background-size: cover;
+            background-position: center;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: var(--blanco);
+            min-height: 450px;
+        }
+
+        .renta-left-image-montajes h2 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            line-height: 1.1;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .renta-left-image-montajes p.sub-titulo-amarillo {
+            color: #facc15; 
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        .feature-item-row h2 {
+            font-size: 1.6rem;
+            color: var(--azul-corporativo);
+            font-weight: 800;
+            margin-top: 5px;
+        }
+
+        .feature-item-row h1 {
+            font-size: 2rem;
+            color: #1e293b;
+            font-weight: 900;
+            margin-bottom: 15px;
+        }
+
+        .feature-item-row ul {
+            list-style: none;
+            margin-top: 8px;
+        }
+
+        .feature-item-row ul li {
+            font-size: 0.95rem;
+            color: #404A4C;
+            line-height: 1.5;
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .feature-item-row ul li::before {
+            content: '•';
+            position: absolute;
+            left: 5px;
+            color: var(--azul-corporativo);
+            font-weight: bold;
+        }
+
+        /* NUEVOS ESTILOS INTERNOS PARA LA TABLA Y CUADRÍCULA DE MONTAJES */
+        .montajes-grid-interna {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .montaje-item-tecnico {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .montaje-item-tecnico i {
+            font-size: 1.5rem;
+            color: var(--azul-corporativo);
+            margin-top: 3px;
+        }
+
+        .montaje-item-tecnico h4 {
+            font-size: 1.1rem;
+            color: #1e293b;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .montaje-item-tecnico p {
+            font-size: 0.88rem;
+            color: #64748b;
+            line-height: 1.4;
+        }
+
+        .tabla-datos-contenedor {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            margin-bottom: 25px;
+            font-size: 0.88rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        .tabla-datos-contenedor th {
+            background-color: #f1f5f9;
+            color: #1e293b;
+            font-weight: 700;
+            text-align: left;
+            padding: 10px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .tabla-datos-contenedor td {
+            padding: 10px;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: top;
+        }
+
+        .tabla-datos-contenedor .col-propiedad {
+            font-weight: 700;
+            color: #1e293b;
+            width: 30%;
+            background: #fafafa;
+        }
+
+        .tabla-datos-contenedor ul {
+            margin: 0;
+            padding-left: 15px;
+            list-style-type: disc;
+        }
+
+        .tabla-datos-contenedor li {
+            margin-bottom: 5px;
+            color: #334155;
+            line-height: 1.4;
+        }
+
+        /* 6. SECCIÓN LOGROS INDUSTRIALES */
+        .seccion-logros {
+            background: linear-gradient(135deg, #163e60 0%, var(--azul-corporativo) 100%);
+            padding: 60px 5%;
+            color: var(--blanco);
+            text-align: center;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+        }
+
+        .logros-centro {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .bloque-logro {
+            flex: 1;
+            min-width: 250px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            cursor: pointer; /* Cambiado a pointer para denotar interacción */
+        }
+
+        .bloque-logro:hover, .bloque-logro.activo {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.09);
+            border-color: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+        }
+
+        .bloque-logro i {
+            font-size: 3.2rem;
+            color: #a3cfff;
+            margin-bottom: 15px;
+            transition: transform 0.5s ease;
+        }
+
+        .bloque-logro:hover i {
+            transform: rotateY(360deg);
+        }
+
+        .numero-logro {
+            font-size: 3.8rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .texto-logro {
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: #e2e8f0;
+        }
+
+        /* ESTILOS DE LAS NUEVAS GALERÍAS (PROYECTOS Y SERVICIOS) */
+        .galeria-dinamica {
+            padding: 60px 8%;
+            background-color: #ffffff;
+            display: none; /* Se controlan dinámicamente con JS */
+        }
+
+        .galeria-dinamica.visible {
+            display: block;
+        }
+
+        .galeria-titulo {
+            text-align: center;
+            font-size: 1.8rem;
+            color: var(--azul-corporativo);
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .galeria-item {
+            background: var(--fondo-tarjetas);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            aspect-ratio: 1 / 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease;
+        }
+
+        .galeria-item:hover {
+            transform: scale(1.03);
+        }
+
+        .galeria-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 7. SECCIÓN CATÁLOGO */
+        .grid-catalogo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .item-catalogo {
+            background: #f1f5f9;
+            border-radius: 8px;
+            padding: 50px 30px;
+            text-align: center;
+            font-weight: 700;
+            color: var(--azul-corporativo);
+            text-transform: uppercase;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* ESTILOS DEL MARCO DEL LIBRO Y VISOR PDF */
+.seccion-catalogo-libro {
+    padding: 60px 5%;
+    background: #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.libro-contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.libro-marcos {
+    width: 100%;
+    height: 580px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border: 8px solid #ffffff;
+    overflow: hidden;
+    position: relative;
+}
+
+.pdf-viewer-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 6px;
+}
+
+.btn-descarga-pdf {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 28px;
+    background-color: #2563eb;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+    transition: background 0.2s, transform 0.1s;
+}
+
+.btn-descarga-pdf:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .libro-marcos {
+        height: 420px;
+    }
+}
+
+/* BOTONES DE CONTROL CENTRADOS Y AZULES */
+.controles-libro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.btn-hojear {
+    background: #1e3a5f;
+    color: #ffffff;
+    border: none;
+    padding: 10px 22px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-hojear:hover {
+    background: #0f172a;
+    transform: translateY(-2px);
+}
+
+.btn-descarga-pdf {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background-color: #2563eb;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.btn-descarga-pdf:hover {
+    background-color: #1d4ed8;
+}
+
+        /* 8. SECCIÓN CONTACTO */
+        .contacto-section {
+            background: var(--oscuro-profundo);
+            color: var(--blanco);
+            text-align: center;
+            padding: 80px 10%;
+        }
+
+        .contacto-section .section-title {
+            color: var(--blanco);
+        }
+
+        .contacto-content p {
+            margin-bottom: 30px;
+            color: #94a3b8;
+        }
+
+        .contacto-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .contacto-info div {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #cbd5e1;
+            font-size: 1.1rem;
+        }
+
+        .contacto-info i {
+            color: var(--azul-corporativo);
+        }
+
+        /* BURBUJAS FLOTANTES DE REDES SOCIALES */
+        .social-bubbles {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 1001;
+        }
+
+        .bubble {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+        }
+
+        .bubble:hover { transform: scale(1.1); }
+        .whatsapp { background: #25D366; }
+        .facebook { background: #1877F2; }
+        .gmail { background: #DB4437; }
+
+        /* FOOTER */
+        footer {
+            background: #090909;
+            color: #64748b;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.85rem;
+            border-top: 1px solid #1e293b;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .split-renta-container { grid-template-columns: 1fr; }
+            .renta-left-image-bg { min-height: 350px; }
+            .renta-left-image-montajes { min-height: 350px; }
+            .galeria-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .nosotros-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.2rem; }
+            .nav-links { display: none; }
+            .container { padding: 50px 5%; }
+            .logros-centro { gap: 25px; }
+            .numero-logro { font-size: 3rem; }
+            .renta-right-info-pane { padding: 40px 20px; }
+            .montajes-grid-interna { grid-template-columns: 1fr; }
+            .galeria-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="logo.png.jpg" alt="Logo Avilés"> 
+            </div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#catalogo">Catálogo</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>MANTENIMIENTO MECÁNICO Y DE SOLDADURA AVILÉS</h1>
+            <p>Somos una empresa 100 % mexicana dedicada a maximizar la disponibilidad y confiabilidad de los equipos de nuestros clientes a través de soluciones integrales de mantenimiento industrial. Nos distinguimos por nuestra ágil capacidad de respuesta, la calidad en la ejecución y un enfoque orientado a resultados, reduciendo tiempos de inactividad y optimizando costos operativos.</p>
+            <a href="#contacto" class="btn-main">Su operación no puede detenerse; nosotros nos aseguramos de que eso no ocurra.</a>
+        </div>
+    </section>
+
+    <section id="nosotros" class="container">
+        <h2 class="section-title">Sobre Nosotros</h2>
+        <div class="nosotros-grid">
+            <div class="card-nosotros">
+                <i class="fas fa-bullseye"></i>
+                <h3>Misión</h3>
+                <p>"En Mantenimiento Mecánico y Soldadura Avilés, nuestra misión es satisfacer las necesidades del sector industrial proporcionando soluciones integrales en ventas, servicios y proyectos industriales. Nos comprometemos a cumplir los requisitos del cliente, las formalidades legales y reglamentarias aplicables, a través de un sistema de gestión de calidad, basado en la mejora continua. Aportamos valor mediante nuestra flexibilidad absoluta y disponibilidad horaria, asegurando la confianza y la excelencia operativa in cada servicio prestado."</p>
+            </div>
+            <div class="card-nosotros">
+                <i class="fas fa-eye"></i>
+                <h3>Visión</h3>
+                <p>Consolidarnos como la empresa líder en infraestructura y servicios industriales, siendo reconocidos por nuestra capacidad técnica y estándares de calidad superior. Aspiramos a ser el socio estratégico de mayor confianza para nuestros clientes, distinguiéndonos por la innovación en nuestras soluciones, la excelencia de nuestros productos y servicios, así como una sostenibilidad operativa continua.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="container section-bg">
+        <h2 class="section-title">NUESTROS SERVICIOS</h2>
+        <div class="grid-services">
+            
+            <div class="tarjeta-diseno-exacto">
+                <div class="img-container-exacto">
+                    <img src="Caldera.jpg" alt="Mantenimiento Industrial">
+                    <div class="icono-flotante-exacto"><i class="fas fa-award"></i></div>
+                </div>
+                <div class="info-container-exacto">
+                    <h4>Mantenimiento Industrial</h4>
+                    <ul>
+                        <li>Mantenimiento a plantas Termoelectricas.</li>
+                        <li>Mantenimiento a calderas.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tarjeta-diseno-exacto">
+                <div class="img-container-exacto">
+                    <img src="Servicios  Industriales.jpg" alt="Servicios Industriales">
+                    <div class="icono-flotante-exacto"><i class="fas fa-tractor"></i></div>
+                </div>
+                <div class="info-container-exacto">
+                    <h4>Servicios Industriales</h4>
+                    <ul>
+                        <li>Calderas.</li>
+                        <li>Pintura Sand Blast.</li>
+                        <li>Fibra de Vidrio.</li>
+                        <li>Torre de Enfriamiento.</li>
+                        <li>Armado de Andamio.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tarjeta-diseno-exacto">
+                <div class="img-container-exacto">
+                    <img src="Mantenimiento  Mecanico.jpg" alt="Mantenimiento Mecanico">
+                    <div class="icono-flotante-exacto"><i class="fas fa-gas-pump"></i></div>
+                </div>
+                <div class="info-container-exacto">
+                    <h4>Mantenimiento Mecanico</h4>
+                    <ul>
+                        <li>Compresores.</li>
+                        <li>Bombas.</li>
+                        <li>Rodamientos de equipos.</li>
+                        <li>Chumaceras.</li>
+                        <li>Actuadores.</li>
+                        <li>Reductores.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tarjeta-diseno-exacto">
+                <div class="img-container-exacto">
+                    <img src="valbulaa.jpg" alt="Mantenimiento a valvulas">
+                    <div class="icono-flotante-exacto"><i class="fas fa-gavel"></i></div>
+                </div>
+                <div class="info-container-exacto">
+                    <h4>Mantenimiento a valvulas</h4>
+                    <ul>
+                        <li>Compuerta.</li>
+                        <li>Mariposa.</li>
+                        <li>Globo.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tarjeta-diseno-exacto">
+                <div class="img-container-exacto">
+                    <img src="Fabricacion.jpg" alt="Fabricacion">
+                    <div class="icono-flotante-exacto"><i class="fas fa-tools"></i></div>
+                </div>
+                <div class="info-container-exacto">
+                    <h4>Fabricacion</h4>
+                    <ul>
+                        <li>Estructuras metalicas.</li>
+                        <li>Fabricacion de arreglos de tuberia.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="alta-capacidad" class="renta-alta-capacidad">
+        <div class="split-renta-container">
+            
+            <div class="renta-left-image-bg">
+                <h2>Renta de<br>Grúas Industriales</h2>
+                <p class="sub-titulo-amarillo">Alta Capacidad en Movimiento</p>
+            </div>
+
+            <div class="renta-right-info-pane">
+                <h3>Renta de Vehículo "Titan"</h3> 
+                <div class="categoria-tag"> Equipo de Alta Capacidad </div>
+                
+                <div class="features-editorial">
+                    <div class="feature-item-row">
+                        <h2>Marca</h2>
+                        <h1>PETERBILT.</h1>
+                    </div>
+                    <div class="feature-item-row">
+                        <h5>Potencia Industrial</h5>
+                        <li>Capacidad de carga optimizada de hasta 23 toneladas para los proyectos más exigentes y capas de desarrollar una potencia que oscila entre los 400 y 500 caballos de fuerza.</li>
+                    </div>
+                    <div class="feature-item-row">
+                        <h5>Tecnología</h5>
+                        <li>Sistema hidraulico Proporcional</li>
+                        <li>Indicadores del Momento de Carga (pantallas en la cabina de operacion que calculan el tiempo real, peso, angulo y el radio, bloqueando automaticamente los movimientos si excede la tabla de carga segura).</li>
+                        <li>Ergonomia de Cabina</li>
+                    </div>
+                    <div class="feature-item-row">
+                        <h5>Versatilidad</h5>
+                        <li>Ideal para montajes de grandes obras de infraestructura.</li>
+                    </div>
+                </div>
+
+                <a href="#contacto" class="btn-renta-editorial">Cotizar Renta</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="montajes" class="seccion-montajes">
+        <div class="split-renta-container">
+            
+            <div class="renta-left-image-montajes">
+                <h2><br></h2>
+                <p class="sub-titulo-amarillo"></p>
+            </div>
+
+            <div class="renta-right-info-pane">
+                <h1 style="font-size: 2.2rem; font-weight: 800; color: #1e293b; margin-bottom: 5px; line-height: 1.2;">Montajes<br>Torque Embridamiento y Alineación</h1>
+                <div class="categoria-tag" style="margin-bottom: 25px; font-weight: 700; color: #475569;"></div>
+                
+                <div class="montajes-grid-interna">
+                    <div class="montaje-item-tecnico">
+                        <i class="fas fa-drafting-compass"></i>
+                        <div>
+                            <h4>Izaje</h4>
+                            <p></p>
+                        </div>
+                    </div> 
+                    <div class="montaje-item-tecnico">
+                        <i class="fas fa-ruler-combined"></i>
+                        <div>
+                            <h4>Alineación</h4>
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="montaje-item-tecnico">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h4>Torque y Embridamiento</h4>
+                            <p>Capacidad para hasta "12" toneladas</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#contacto" class="btn-renta-editorial" style="background-color:#1e3a5f;">SOLICITAR COTIZACIÓN DE MONTAJE</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="seccion-logros">
+        <div class="logros-centro">
+            <div class="bloque-logro activo" id="btn-proyectos" onclick="mostrarGaleria('proyectos')">
+                <i class="fas fa-cubes"></i>
+                <div class="numero-logro"></div>
+                <div class="texto-logro">Proyectos Completados</div>
+            </div>
+            <div class="bloque-logro" id="btn-servicios" onclick="mostrarGaleria('servicios')">
+                <i class="fas fa-cogs"></i>
+                <div class="numero-logro"></div>
+                <div class="texto-logro">Servicios Completados</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria-proyectos" class="galeria-dinamica visible">
+        <div class="galeria-titulo">
+            <i class="fas fa-cubes"></i> Evidencia de Proyectos Completados
+        </div>
+        <div class="galeria-grid">
+            <div class="galeria-item"><img src="Proyecto 1.jpg" alt="Proyecto 1"></div>
+            <div class="galeria-item"><img src="Proyecto 2.jpg" alt="Proyecto 2"></div>
+            <div class="galeria-item"><img src="Proyecto 3.jpg" alt="Proyecto 3"></div>
+            <div class="galeria-item"><img src="Proyecto 4.jpg" alt="Proyecto 4"></div>
+            <div class="galeria-item"><img src="Proyecto 5.jpg" alt="Proyecto 5"></div>
+            <div class="galeria-item"><img src="Proyecto 6.jpg" alt="Proyecto 6"></div>
+            <div class="galeria-item"><img src="Proyecto 7.jpg" alt="Proyecto 7"></div>
+            <div class="galeria-item"><img src="Proyecto 8.jpg" alt="Proyecto 8"></div>
+        </div>
+    </section>
+
+    <section id="galeria-servicios" class="galeria-dinamica">
+        <div class="galeria-titulo">
+            <i class="fas fa-cogs"></i> Evidencia de Servicios Completados
+        </div>
+        <div class="galeria-grid">
+            <div class="galeria-item"><img src="Servicio 1.jpg" alt="Servicio 1"></div>
+            <div class="galeria-item"><img src="Servicio 2.jpg" alt="Servicio 2"></div>
+            <div class="galeria-item"><img src="Servicio 3.jpg" alt="Servicio 3"></div>
+            <div class="galeria-item"><img src="Servicio 4.jpg" alt="Servicio 4"></div>
+            <div class="galeria-item"><img src="Servicio 5.jpg" alt="Servicio 5"></div>
+            <div class="galeria-item"><img src="Servicio 6.jpg" alt="Servicio 6"></div>
+            <div class="galeria-item"><img src="Servicio 7.jpg" alt="Servicio 7"></div>
+            <div class="galeria-item"><img src="Servicio 8.jpg" alt="Servicio 8"></div>
+        </div>
+    </section>
+
+<!-- 7. SECCIÓN CATÁLOGO (LIBRO VISOR PDF DIRECTO) -->
+<section id="catalogo" class="seccion-catalogo-libro">
+    <h2 class="galeria-titulo"><i class="fas fa-book-open"></i> NUESTRO CATÁLOGO</h2>
+    <p style="margin-bottom: 20px; color: #475569; text-align: center;">Desplázate y hojea las páginas de nuestro catálogo directamente aquí.</p>
+
+    <div class="libro-contenedor">
+        <div class="libro-marcos">
+            <!-- Visor interactivo del PDF que muestra el documento abierto -->
+            <iframe src="catalogo.pdf#toolbar=0&navpanes=0&scrollbar=1" class="pdf-viewer-frame" title="Catálogo PDF"></iframe>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 25px;">
+        <a href="catalogo.pdf" download class="btn-descarga-pdf">
+            <i class="fas fa-file-pdf"></i> Descargar Catálogo Completo (PDF)
+        </a>
+    </div>
+</section>
+
+    <section id="contacto" class="contacto-section">
+        <h2 class="section-title">CONTACTO</h2>
+        <div class="contacto-content">
+            <p>Estamos listos para atender tus requerimientos técnicos con personal altamente capacitado.</p>
+            
+            <div class="contacto-info">
+                <div>
+                    <i class="fas fa-map-marker-alt"></i> 
+                    Ubicación: Calle Belisario Dominguez 1603, Col Francisco I Madero, CP 89603 
+                    <br><br>
+                </div>
+                <div>
+                    <i class="fas fa-phone-alt"></i> 
+                    Celular: +52 833 263 6835
+                    <br> <br>
+                    Tel: 833 652 1799
+                     <br> <br>
+                     Correo: ventas@mmsaviles.com
+                     <br> <br>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="social-bubbles">
+        <a href="https://wa.me/528332636835?text=Hola,%20solicito%20información%20sobre%20sus%20servicios%20industriales." class="bubble whatsapp" target="_blank" title="Escríbenos por WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="#" class="bubble facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="bubble gmail"><i class="fas fa-envelope"></i></a>
+    </div>
+
+    <footer>
+        &copy;  Mantenimiento Mecánico y de Soldadura Avilés. Todos los derechos reservados.
+    </footer>
+
+    <!-- Librerías requeridas para procesar PDF y animar hojas de libro -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
+
+<script>
+    // LÓGICA DE GALERÍA DE PROYECTOS / SERVICIOS (SIN CAMBIOS)
+    function mostrarGaleria(tipo) {
+        const galeriaProyectos = document.getElementById('galeria-proyectos');
+        const galeriaServicios = document.getElementById('galeria-servicios');
+        const btnProyectos = document.getElementById('btn-proyectos');
+        const btnServicios = document.getElementById('btn-servicios');
+
+        if (tipo === 'proyectos') {
+            galeriaProyectos.classList.add('visible');
+            galeriaServicios.classList.remove('visible');
+            btnProyectos.classList.add('activo');
+            btnServicios.classList.remove('activo');
+        } else if (tipo === 'servicios') {
+            galeriaServicios.classList.add('visible');
+            galeriaProyectos.classList.remove('visible');
+            btnServicios.classList.add('activo');
+            btnServicios.classList.remove('activo');
+        }
+    }
+
+    // CARGA AUTOMÁTICA DEL PDF AL LIBRO INTERACTIVO
+    const pdfUrl = 'catalogo.pdf'; // Cambia el nombre aquí si tu archivo tiene otro nombre
+
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+
+    let pageFlip;
+
+    async function cargarPDFyCrearFlipbook() {
+        try {
+            const loadingTask = pdfjsLib.getDocument(pdfUrl);
+            const pdf = await loadingTask.promise;
+            const totalPages = pdf.numPages;
+
+            document.getElementById('page-count').textContent = totalPages;
+            const flipbookContainer = document.getElementById('flipbook');
+            flipbookContainer.innerHTML = '';
+
+            // Renderizar dinámicamente cada página del PDF dentro del libro
+            for (let pageNum = 1; pageNum <= totalPages; pageNum++) {
+                const page = await pdf.getPage(pageNum);
+                const viewport = page.getViewport({ scale: 1.5 });
+
+                const canvas = document.createElement('canvas');
+                const context = canvas.getContext('2d');
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
+                await page.render({ canvasContext: context, viewport: viewport }).promise;
+
+                const pageDiv = document.createElement('div');
+                pageDiv.className = 'my-page';
+                pageDiv.appendChild(canvas);
+                flipbookContainer.appendChild(pageDiv);
+            }
+
+            // Configurar animación de libro 3D exacta a la interfaz deseada
+            const isMobile = window.innerWidth < 768;
+            pageFlip = new St.PageFlip(flipbookContainer, {
+                width: isMobile ? 320 : 400,
+                height: isMobile ? 450 : 520,
+                size: "fixed",
+                minWidth: 300,
+                maxWidth: 1000,
+                minHeight: 400,
+                maxHeight: 800,
+                maxShadowOpacity: 0.5,
+                showCover: true,
+                mobileScrollSupport: false
+            });
+
+            pageFlip.loadFromHTML(document.querySelectorAll('.my-page'));
+
+            // Escuchadores para actualizar números y mover páginas
+            pageFlip.on('flip', (e) => {
+                document.getElementById('page-num').textContent = e.data + 1;
+            });
+
+            document.getElementById('btn-prev').addEventListener('click', () => pageFlip.flipPrev());
+            document.getElementById('btn-next').addEventListener('click', () => pageFlip.flipNext());
+
+        } catch (error) {
+            console.error("Error al procesar el PDF:", error);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', cargarPDFyCrearFlipbook);
+</script>
+
+</body>
+</html>
